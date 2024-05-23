@@ -30,23 +30,23 @@ linux-security-hardening-toolkit/
 └── requirements.txt
 ```
 # Summary of Each File
-audits/
+### audits/
 - audit_permissions.sh: Checks for world-writable files.
 - audit_users.sh: Checks for user accounts with no password set.
 - audit_network.sh: Checks for open ports and unnecessary services.
-configs/
+### configs/
 - harden_permissions.sh: Removes world-writable permissions from files.
 - harden_users.sh: Enforces password policies and locks user accounts with no password.
 - harden_network.sh: Disables unnecessary services and configures the firewall.
-reports/
+### reports/
 - generate_report.py: Generates a JSON report based on the audit results.
-tests/
+### tests/
 - test_audit_permissions.sh: Tests the audit_permissions.sh script.
 - test_harden_permissions.sh: Tests the harden_permissions.sh script.
 - test_generate_report.py: Tests the generate_report.py script.
-utils/
+### utils/
 - common_functions.sh: Contains reusable functions such as checking for root privileges, logging messages, and backing up files.
-Root Directory
+### Root Directory
 - main.py: The script orchestrates the audit, hardening, and report generation processes.
 - README.md: Project description, installation instructions, and usage examples.
 - requirements.txt: Lists Python dependencies if any.
