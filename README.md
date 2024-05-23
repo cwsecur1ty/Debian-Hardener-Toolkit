@@ -39,7 +39,8 @@ linux-security-hardening-toolkit/
 ├── audits/
 │   ├── audit_permissions.sh
 │   ├── audit_users.sh
-│   └── audit_network.sh
+│   ├── audit_network.sh
+│   └── audit_updates.sh
 │
 ├── configs/
 │   ├── harden_permissions.sh
@@ -66,6 +67,7 @@ linux-security-hardening-toolkit/
 - audit_permissions.sh: Checks for world-writable files.
 - audit_users.sh: Checks for user accounts with no password set.
 - audit_network.sh: Checks for open ports and unnecessary services.
+- audit_updates.sh: Checks for latest security patches.
 ### configs/
 - harden_permissions.sh: Removes world-writable permissions from files.
 - harden_users.sh: Enforces password policies and locks user accounts with no password.
