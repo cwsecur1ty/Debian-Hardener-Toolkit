@@ -1,5 +1,37 @@
 # Linux-Hardener-Toolkit
 A toolkit for automating Linux security hardening and compliance auditing
+## Features
+- System configuration auditing
+- Automated security configuration changes
+- Compliance reporting
+## Installation
+1. Clone the repository:
+   
+   ```bash
+   git clone https://github.com/yourusername/LinuxSecToolkit.git
+   cd LinuxSecToolkit
+   ```
+2. Ensure audit and hardening scripts are executable:
+   ```bash
+   chmod +x audits/*.sh
+   chmod +x configs/*.sh
+   chmod +x tests/*.sh
+   chmod +x utils/common_functions.sh
+   ```
+# Running Tests
+You can run test scripts to verify everything works as expected ->
+```bash
+bash tests/test_audit_permissions.sh
+bash tests/test_harden_permissions.sh
+python3 tests/test_generate_report.py
+```
+# Using the Toolkit
+To use the toolkit, run main.py with any of these arguments:
+```bash
+python3 main.py --audit
+python3 main.py --harden
+python3 main.py --report
+```
 # Structure Overview
 ```
 linux-security-hardening-toolkit/
