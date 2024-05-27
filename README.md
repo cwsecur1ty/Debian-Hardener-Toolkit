@@ -8,8 +8,8 @@ A toolkit for automating Linux security hardening and compliance auditing
 1. Clone the repository:
    
    ```bash
-   git clone https://github.com/yourusername/LinuxSecToolkit.git
-   cd LinuxSecToolkit
+   git clone https://github.com/cwsecur1ty/Debian-Hardener-Toolkit.git
+   cd Debian-Hardener-Toolkit
    ```
 2. Ensure audit and hardening scripts are executable:
    ```bash
@@ -34,7 +34,7 @@ python3 main.py --report
 ```
 # Structure Overview
 ```
-linux-security-hardening-toolkit/
+Debian-Hardener-Toolkit/
 │
 ├── audits/
 │   ├── audit_permissions.sh
