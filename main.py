@@ -2,13 +2,10 @@ import subprocess
 import argparse # to handle command-line arguments
 import os
 
-
-def run_script(script_path): 
+def run_script(script_path):
     # Executes a given Bash script and captures its output
     result = subprocess.run(['bash', script_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
     return result.stdout, result.stderr
-
-
 
 def audit_system():
     print("\n[NOTICE] Don't forget to make sure the audit scripts are executable. ('chmod +x audits/*.sh')")
@@ -33,6 +30,14 @@ def audit_system():
     
     return audit_results
 
+def print_audit_results(audit_results):
+    print("\n[+] Audit Results:")
+    for script, results in audit_results.items():
+        print(f"\n[+] Results for {script}:")
+        print(f"Output:\n{results['output']}")
+        if results['error']:
+            print(f"Error:\n{results['error']}")
+
 def harden_system():
     print("\n[NOTICE] Don't forget to make sure the hardening scripts are executable. ('chmod +x configs/*.sh')")
     print("[*] Applying security hardening.\n")
@@ -56,6 +61,14 @@ def harden_system():
     
     return harden_results
 
+def print_harden_results(harden_results):
+    print("\n[+] Hardening Results:")
+    for script, results in harden_results.items():
+        print(f"\n[+] Results for {script}:")
+        print(f"Output:\n{results['output']}")
+        if results['error']:
+            print(f"Error:\n{results['error']}")
+
 def generate_report(audit_results):
     from reports import generate_report
 
@@ -73,11 +86,11 @@ def main():
     
     if args.audit:
         audit_results = audit_system()
-        print("Audit Results:", audit_results)
+        print_audit_results(audit_results)
     
     if args.harden:
         harden_results = harden_system()
-        print("Hardening Results:", harden_results)
+        print_harden_results(harden_results)
     
     if args.report:
         # Assuming audit results are required for the report
