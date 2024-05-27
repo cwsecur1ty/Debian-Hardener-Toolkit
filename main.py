@@ -2,10 +2,12 @@ import subprocess
 import argparse # to handle command-line arguments
 import os
 
+
 def run_script(script_path): 
-    # executes a given Bash script and captures its output
-    result = subprocess.run(['bash', script_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    # Executes a given Bash script and captures its output
+    result = subprocess.run(['bash', script_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
     return result.stdout, result.stderr
+
 
 
 def audit_system():
