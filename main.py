@@ -2,9 +2,11 @@ import subprocess
 import argparse # to handle command-line arguments
 import os
 
-def run_script(script_path): # executes a given Bash script and captures its output
-    result = subprocess.run(['bash', script_path], capture_output=True, text=True)
+def run_script(script_path): 
+    # executes a given Bash script and captures its output
+    result = subprocess.run(['bash', script_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     return result.stdout, result.stderr
+
 
 def audit_system():
     print("\n[NOTICE] Don't forget to make sure the audit scripts are executable. ('chmod +x audits/*.sh')")
@@ -14,7 +16,8 @@ def audit_system():
         'audits/audit_permissions.sh',
         'audits/audit_users.sh',
         'audits/audit_network.sh',
-        'audits/audit_updates.sh'  
+        'audits/audit_updates.sh',
+        'audits/audit_ssh_config.sh'  
     ]
     
     audit_results = {}
@@ -33,9 +36,11 @@ def harden_system():
     print("[*] Applying security hardening.\n")
     
     harden_scripts = [
-        'configs/harden_permissions.sh',
-        'configs/harden_users.sh',
-        'configs/harden_network.sh'
+        'configs/harden_permissions.sh', # Searches for word-writable files and chmods them, sets /etc to 700
+        'configs/harden_users.sh',       # Sets password policy, locks user accounts with no passwords.
+        'configs/harden_network.sh',     # Disables telnet, configures Firewall using ufw to have an implicit deny on incoming traffic, allows all outgoing and allows ssh connections.   
+        'configs/harden_ssh_config.sh',  # Hardens SSH Configuration, disables root login, amongst other things.
+        'configs/harden_fail2ban.sh'     # Installs & Configures Fail2Ban
     ]
     
     harden_results = {}
