@@ -1,4 +1,4 @@
-# Linux-Hardener-Toolkit
+# Debian-Hardener-Toolkit
 A toolkit for automating Linux security hardening and compliance auditing
 ## Features
 - System configuration auditing
