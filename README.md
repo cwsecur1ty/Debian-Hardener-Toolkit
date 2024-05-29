@@ -35,15 +35,12 @@ python3 main.py --report
 
 # Summary of Each File
 ### audits/
-- audit_network.sh: Checks for open ports and unnecessary services.
 - audit_permissions.sh: Checks for world-writable files.
 - audit_ssh_config.sh: Checks SSH Configuration for discrepancies and other issues.
 - audit_users.sh: Checks for user accounts with no password set.
 - audit_updates.sh: Checks for latest security patches.
 ### configs/
 - harden_fail2ban.sh: Installs and configures Fail2Ban to protect against brute force attacks.
-- harden_network_config.ini: Configuration file that allows customisation for the harden_network.sh script.
-- harden_network.sh: Disables unnecessary services and configures the firewall.
 - harden_permissions.sh: Removes world-writable permissions from files.
 - harden_ssh_config.sh: Enforces secure settings in the SSH configuration.
 - harden_users.sh: Enforces password policies and locks user accounts with no password.
