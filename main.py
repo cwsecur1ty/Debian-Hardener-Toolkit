@@ -14,7 +14,6 @@ def audit_system():
     audit_scripts = [
         'audits/audit_permissions.sh',
         'audits/audit_users.sh',
-        'audits/audit_network.sh',
         'audits/audit_updates.sh',
         'audits/audit_ssh_config.sh'  
     ]
@@ -44,8 +43,7 @@ def harden_system():
     
     harden_scripts = [
         'configs/harden_permissions.sh', # Searches for word-writable files and chmods them, sets /etc to 700
-        'configs/harden_users.sh',       # Sets password policy, locks user accounts with no passwords.
-        'configs/harden_network.sh',     # Disables telnet, configures Firewall using ufw to have an implicit deny on incoming traffic, allows all outgoing and allows ssh connections.   
+        'configs/harden_users.sh',       # Sets password policy, locks user accounts with no passwords.   
         'configs/harden_ssh_config.sh',  # Hardens SSH Configuration, disables root login, amongst other things.
         'configs/harden_fail2ban.sh'     # Installs & Configures Fail2Ban
     ]
