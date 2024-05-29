@@ -10,7 +10,7 @@ elif command -v yum > /dev/null; then
     sudo yum install -y epel-release
     sudo yum install -y fail2ban
 else
-    echo -e "\n[!] Unsupported package manager. Please install Fail2Ban manually."
+    echo "Unsupported package manager. Please install Fail2Ban manually."
     exit 1
 fi
 
@@ -29,4 +29,4 @@ EOF
 sudo systemctl restart fail2ban
 sudo systemctl enable fail2ban
 
-echo -e "\n[+] Fail2Ban installation and configuration completed."
+echo "[+] Fail2Ban installation and configuration completed."

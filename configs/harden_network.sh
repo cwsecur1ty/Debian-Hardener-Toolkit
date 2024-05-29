@@ -41,19 +41,19 @@ ALLOW_OUTGOING=$(get_config_value "firewall" "allow_outgoing")
 ALLOW_PORTS=$(get_config_value "firewall" "allow_ports")
 
 if [ "$DENY_INCOMING" == "yes" ]; then
-    ufw default deny incoming
+    yes | ufw default deny incoming
     echo -e "\n[+] Denying all incoming connections by default."
 fi
 
 if [ "$ALLOW_OUTGOING" == "yes" ]; then
-    ufw default allow outgoing
+    yes | ufw default allow outgoing
     echo -e "\n[+] Allowing all outgoing connections by default."
 fi
 
 for port in ${ALLOW_PORTS//,/ }; do
-    ufw allow $port
+    yes | ufw allow $port
     echo -e "\n[+] Allowing incoming connections on port $port."
 done
 
-ufw enable
+yes | ufw enable
 echo -e "\n[+] Firewall configured according to the specified settings."
