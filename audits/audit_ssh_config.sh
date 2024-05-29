@@ -28,6 +28,8 @@ check_config "PasswordAuthentication" "no"
 check_config "ChallengeResponseAuthentication" "no"
 check_config "X11Forwarding" "no"
 check_config "MaxAuthTries" "4"
+check_config "PubkeyAuthentication" "yes"
+check_config "AuthorizedKeysFile" ".ssh/authorized_keys"
 
 # Check for other potential issues
 echo -e "[*] Checking for other potential issues..."
