@@ -2,8 +2,11 @@
 
 echo -e "\n[!] Hardening network settings."
 
+# Determine the directory where this script is located
+SCRIPT_DIR=$(dirname $(realpath $0))
+
 # Load configuration
-CONFIG_FILE="network_config.ini"
+CONFIG_FILE="$SCRIPT_DIR/network_config.ini"
 if [ ! -f "$CONFIG_FILE" ]; then
     echo "Configuration file not found: $CONFIG_FILE"
     exit 1
